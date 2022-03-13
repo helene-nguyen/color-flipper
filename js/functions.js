@@ -40,19 +40,37 @@ function randomHex() {
 //~Select the background and change the color
 function changeBackground() {
     var selectDivBackground = document.querySelector(".background-change");
-    selectDivBackground.style.backgroundColor = randomHex();
+    var infoHex = randomHex();
+    console.log(infoHex);
+    selectDivBackground.style.backgroundColor = infoHex; //do not call the randomHex again if you don't want to generate another random HEX
+    addInfoHex(infoHex);
+    return infoHex;
 }
 
 //~Select where we want to change the background
 function btnChangeClick() {
     var selectButton = document.querySelector("#btn-change");
     selectButton.addEventListener("click", changeBackground);
-    selectButton.addEventListener("click", addInfoHex);
-    return selectButton;
 }
 
 //~Add the info about the HEX color
-function addInfoHex() {
+function addInfoHex(info) {
     let addHexTxt = document.querySelector(".hex-txt");
-    addHexTxt.innerHTML = randomHex();
+    addHexTxt.innerHTML = info;
 }
+
+//~Copy Hex
+/* function copyHex() {
+    let myHextxt = document.querySelector(".hex-txt");
+    myHextxt = randomHex();
+    document.cop
+
+    let tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied !";
+}
+
+function outFunc() {
+    let tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copy to clipboard";
+}
+   */

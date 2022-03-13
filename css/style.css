@@ -12,6 +12,7 @@
     --white: #FFF;
     --black: #000;
     --dark-grey: #1F1E1E;
+    --clear-grey: #555555;
     --light-grey: #EEEEED;
 }
 
@@ -60,8 +61,6 @@ header {
     margin: 0;
 }
 
-.header-txt {}
-
 /* MAIN */
 .color-flipper {
     /* display */
@@ -89,7 +88,45 @@ header {
     font-weight: 600;
     /* box-model */
     margin: 1em 0;
+    cursor: pointer;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    /* visibility: hidden; */
+    width: 10em;
+    background-color: var(--clear-grey);
+    color: var(--white);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 70%;
+    left: 15%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--clear-grey) transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
 
 /*~Button change*/
 #btn-change {
